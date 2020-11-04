@@ -1,9 +1,10 @@
 import { mount, shallowMount } from '@vue/test-utils'
-import App from '@/App.vue'
-import Hello from '@/components/Hello.vue'
+import About from '@/views/About/About.vue'
+import Hello from '@/views/About/components/Hello.vue'
 
-test('uses mounts', async () => {
-  const wrapper = mount(App)
+test('uses mounts', async () =>
+{
+  const wrapper = mount(About)
   expect(wrapper.html()).toContain('Vue app')
   expect(wrapper.html()).toContain('Hello world')
   expect(wrapper.html()).toContain('Count: 0')
@@ -12,8 +13,9 @@ test('uses mounts', async () => {
   expect(wrapper.html()).toContain('Count: 1')
 })
 
-test('uses shallowMount', async () => {
-  const wrapper = shallowMount(App)
+test('uses shallowMount', async () =>
+{
+  const wrapper = shallowMount(About)
   expect(wrapper.html()).toContain('Vue app')
   expect(wrapper.html()).not.toContain('Hello world')
   expect(wrapper.html()).toContain('Count: 0')

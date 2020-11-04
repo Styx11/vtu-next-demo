@@ -7,9 +7,10 @@ module.exports = {
   testEnvironment: 'jsdom',
   testRegex: '^.+\\.spec\\.ts',
   moduleNameMapper: {
-		'^@/(.*)$': '<rootDir>/src/$1'
-	},
+    '^@/(.*)$': '<rootDir>/src/$1'
+  },
   transform: {
+    "^.+\\.ts$": "ts-jest",
     "^.+\\.vue$": "vue-jest",
     "^.+\\js$": "babel-jest"
   },
