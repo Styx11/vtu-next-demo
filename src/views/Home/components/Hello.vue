@@ -1,12 +1,14 @@
 <template>
 	<div class="hello">
-		<!-- <Rate :value="5" /> -->
+		<Rate :value="5" />
 		<h1>{{ totalMessage }}</h1>
 	</div>
 </template>
 
 <script lang='ts'>
 // import { Rate } from 'ant-design-vue';
+import Rate from 'ant-design-vue/lib/rate/index';
+import 'ant-design-vue/lib/rate/style/css';
 import { defineComponent, PropType, toRefs, computed } from 'vue'
 interface ComplexMessage
 {
@@ -17,7 +19,7 @@ interface ComplexMessage
 export default defineComponent({
 	name: 'HelloWorld',
 	components: {
-		// Rate,
+		Rate,
 	},
 	props: {
 		msg: {

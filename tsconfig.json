@@ -7,6 +7,7 @@
     "importHelpers": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
+    "allowJs": true,
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
