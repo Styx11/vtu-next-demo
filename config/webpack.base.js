@@ -16,10 +16,6 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.less$/,
-				use: ['style-loader', 'css-loader', 'less-loader'],
-			},
-			{
 				test: /\.ts$/,
 				exclude: [/node_modules/, /vue\/src/],
 				loader: 'ts-loader',
@@ -27,17 +23,16 @@ module.exports = {
 					appendTsSuffixTo: [/\.vue$/],
 					transpileOnly: true,
 					// ant-design-vue 按需加载
-					// 因为 jest 的运行方式，弃用此引用方式
-
-					// getCustomTransformers: () => ({
-					// 	before: [
-					// 		tsImportPluginFactory({
-					// 			libraryName: 'ant-design-vue',
-					// 			libraryDirectory: 'es',
-					// 			style: 'css',
-					// 		}),
-					// 	],
-					// }),
+					// 因为 jest 的运行方式，需要在测试环境下设置 babel-plugin-import
+					getCustomTransformers: () => ({
+						before: [
+							tsImportPluginFactory({
+								libraryName: 'ant-design-vue',
+								libraryDirectory: 'es',
+								style: 'css',
+							}),
+						],
+					}),
 					compilerOptions: {
 						module: 'es2015'
 					}

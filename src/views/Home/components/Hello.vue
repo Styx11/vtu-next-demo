@@ -6,9 +6,7 @@
 </template>
 
 <script lang='ts'>
-// import { Rate } from 'ant-design-vue';
-import Rate from 'ant-design-vue/lib/rate/index';
-import 'ant-design-vue/lib/rate/style/css';
+import { Rate } from 'ant-design-vue';
 import { defineComponent, PropType, toRefs, computed } from 'vue'
 interface ComplexMessage
 {
