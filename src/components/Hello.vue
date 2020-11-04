@@ -15,3 +15,9 @@ export default defineComponent({
   }
 })
 </script>
+
+<style scoped>
+button {
+  color: red;
+}
+</style>

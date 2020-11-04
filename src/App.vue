@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import Hello from './Hello.vue'
+import Hello from './components/Hello.vue'
 
 export default defineComponent({
   name: 'App',
@@ -30,3 +30,9 @@ export default defineComponent({
   }
 })
 </script>
+
+<style scoped>
+button {
+  color: red;
+}
+</style>

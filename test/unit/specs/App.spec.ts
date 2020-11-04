@@ -1,6 +1,6 @@
 import { mount, shallowMount } from '@vue/test-utils'
-import App from './App.vue'
-import Hello from './Hello.vue'
+import App from '@/App.vue'
+import Hello from '@/components/Hello.vue'
 
 test('uses mounts', async () => {
   const wrapper = mount(App)

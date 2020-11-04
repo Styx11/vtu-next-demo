@@ -1,7 +1,14 @@
+const path = require('path');
+
 module.exports = {
+  rootDir: path.resolve(__dirname, '../../'),
   preset: 'ts-jest',
   globals: {},
   testEnvironment: 'jsdom',
+  testRegex: '^.+\\.spec\\.ts',
+  moduleNameMapper: {
+		'^@/(.*)$': '<rootDir>/src/$1'
+	},
   transform: {
     "^.+\\.vue$": "vue-jest",
     "^.+\\js$": "babel-jest"
