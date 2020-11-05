@@ -1,4 +1,6 @@
-const { resolve } = require('./utils');
+const utils = require('./utils');
+const resolve = utils.resolve;
+const postcssConfig = require('./postcss.config');
 const { VueLoaderPlugin } = require('vue-loader');
 const tsImportPluginFactory = require('ts-import-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -50,10 +52,24 @@ module.exports = {
 					resolve('test'),
 				],
 			},
-
 			{
-				test: /\.css$/,
-				use: ['vue-style-loader', MiniCssExtractPlugin.loader, 'css-loader']
+				test: /\.(css|postcss)$/i,
+				oneOf: [
+					// this matches `<style module>`
+					{
+						resourceQuery: /module/,
+						use: utils.cssLoaders({
+							sourceMap: true,
+							usePostCSS: true,
+						}).postcss,
+					},
+					// this matches plain `<style>` or `<style scoped>`
+					// issue: somehow, cross-env won't set NODE_ENV correctly
+					// so we always use vue-style-loader and minicss together
+					{
+						use: ['vue-style-loader', MiniCssExtractPlugin.loader, 'css-loader'],
+					},
+				],
 			},
 			{
 				test: /\.svg$/,
