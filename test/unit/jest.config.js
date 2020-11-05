@@ -4,6 +4,7 @@ module.exports = {
   rootDir: path.resolve(__dirname, '../../'),
   preset: 'ts-jest',
   globals: {},
+  setupFiles: ['<rootDir>/test/unit/setup.js'],
   testEnvironment: 'jsdom',
   testRegex: '^.+\\.spec\\.js',
   moduleNameMapper: {
