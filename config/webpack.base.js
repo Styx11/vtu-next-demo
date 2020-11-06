@@ -1,7 +1,7 @@
 const utils = require('./utils');
 const resolve = utils.resolve;
-const postcssConfig = require('./postcss.config');
 const { VueLoaderPlugin } = require('vue-loader');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const tsImportPluginFactory = require('ts-import-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -122,6 +122,10 @@ module.exports = {
 		// 因为 extractcss 插件存在接口使用错误，所以使用这个插件
 		new MiniCssExtractPlugin({
 			filename: 'static/css/[name].[contenthash].css',
+		}),
+
+		new ESLintPlugin({
+			files: '../src',
 		}),
 	]
 }

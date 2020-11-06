@@ -1,0 +1,48 @@
+{
+	"root": true,
+	"env": {
+		"browser": true,
+		"node": true,
+		"es6": true,
+		"jest": true
+	},
+	"parser": "vue-eslint-parser", // 解析 .vue 文件
+	"extends": [
+		"plugin:vue/recommended",
+		"plugin:@typescript-eslint/recommended"
+	],
+	"plugins": [
+		"@typescript-eslint"
+	],
+	"parserOptions": {
+		"parser": "@typescript-eslint/parser" // 解析 .ts 文件
+	},
+	"rules": {
+		"@typescript-eslint/no-var-requires": 0,
+		"@typescript-eslint/no-empty-function": 0,
+		"@typescript-eslint/explicit-module-boundary-types": 0,
+		"vue/html-self-closing": 0,
+		"vue/max-attributes-per-line": 0,
+		"vue/attributes-order": 0,
+		"vue/multiline-html-element-content-newline": 0,
+		"vue/singleline-html-element-content-newline": 0,
+		"vue/html-indent": [
+			"error",
+			"tab",
+			{
+				"attribute": 1,
+				"baseIndent": 1,
+				"closeBracket": 0,
+				"alignAttributesVertically": true,
+				"ignores": []
+			}
+		], // enforce tabs in template
+		"indent": [
+			"error",
+			"tab",
+			{
+				"SwitchCase": 1
+			}
+		] // enforce tabs in script and js files
+	}
+}
